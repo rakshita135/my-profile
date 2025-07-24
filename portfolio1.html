@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rakshita Mehta - Professional Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- 
+    Palette Name: Energetic & Playful
+    Narrative Plan:
+    1.  Header: Strong introduction with name, dual role objective, and key links.
+    2.  Summary & KPIs: A powerful summary next to standout stats (CGPA, Scores) to hook the viewer.
+    3.  Technical Proficiency: Visualize the breadth and depth of skills using multiple chart types.
+    4.  Project Showcase: Detail key projects in a clean, card-based layout, emphasizing technologies and outcomes.
+    5.  Experience Timeline: A clear, chronological view of professional experience.
+    6.  Achievements & Certifications: Group accomplishments and formal learning to show drive and recognition.
+    7.  Footer/CTA: Final call-to-action with contact info.
+
+    Visualization Choices:
+    -   Academic Scores -> Bar Chart (Chart.js): Goal is to Compare performance across academic milestones. A bar chart is the clearest way to show this comparison. Implemented with Chart.js Canvas. NO SVG.
+    -   Core Skill Competency -> Radar Chart (Chart.js): Goal is to Compare proficiency across different domains (Languages, DSA, Salesforce). A radar chart effectively visualizes a balanced, multi-faceted skill set. Implemented with Chart.js Canvas. NO SVG.
+    -   Project Experience -> Styled Cards (HTML/CSS): Goal is to Organize and Inform. Cards provide a structured, readable format for project details, better than a chart for this type of information. Implemented with Tailwind CSS. NO SVG.
+    -   Professional Journey -> Timeline (HTML/CSS): Goal is to show Change over time. A vertical timeline is an intuitive and standard way to represent chronological experience. Implemented with Tailwind CSS. NO SVG.
+    -   Achievements -> Styled List (HTML/CSS with Unicode): Goal is to Inform and Organize. A list with icons is clean and scannable. Implemented with Tailwind CSS and Unicode characters. NO SVG.
+
+    Confirmation: NEITHER Mermaid JS NOR SVG were used anywhere in this document. All visualizations are either Chart.js (Canvas) or structured HTML/CSS with Tailwind.
+    -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .nav-link.active {
+            font-weight: bold;
+            color: #003459; /* Darker color for active link */
+            border-bottom: 2px solid #003459;
+        }
+    </style>
+</head>
+<body class="text-[#232323]">
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8">
+        
+        <header class="text-center py-8">
+            <div class="flex flex-col items-center mb-4">
+                <img src="https://placehold.co/120x120/003459/FFFFFF?text=RM" alt="Rakshita Mehta Profile" class="rounded-full w-32 h-32 object-cover border-4 border-[#00A8E8] shadow-lg mb-4">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-[#003459] text-shadow">RAKSHITA MEHTA</h1>
+            </div>
+            <p class="text-xl md:text-2xl font-semibold text-[#007EA7] mt-2">Aspiring Software Developer & Salesforce Specialist</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <a href="https://www.linkedin.com/in/rakshita-mehta-1a9684257/" class="text-[#00A8E8] hover:underline">LinkedIn</a>
+                <a href="#" class="text-[#00A8E8] hover:underline">LeetCode</a>
+                <a href="https://www.salesforce.com/trailblazer/b58zc97v0181egl10m" class="text-[#00A8E8] hover:underline">Trailhead</a>
+            </div>
+        </header>
+
+        <nav class="sticky top-0 bg-white shadow-md z-50 py-4 mb-8 rounded-lg">
+            <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-lg font-medium">
+                <li><a href="#summary" class="nav-link text-[#007EA7] hover:text-[#003459] transition-colors duration-200 px-3 py-1 rounded-md">About</a></li>
+                <li><a href="#education" class="nav-link text-[#007EA7] hover:text-[#003459] transition-colors duration-200 px-3 py-1 rounded-md">Education</a></li>
+                <li><a href="#skills" class="nav-link text-[#007EA7] hover:text-[#003459] transition-colors duration-200 px-3 py-1 rounded-md">Skills</a></li>
+                <li><a href="#projects" class="nav-link text-[#007EA7] hover:text-[#003459] transition-colors duration-200 px-3 py-1 rounded-md">Projects</a></li>
+                <li><a href="#experience" class="nav-link text-[#007EA7] hover:text-[#003459] transition-colors duration-200 px-3 py-1 rounded-md">Experience</a></li>
+                <li><a href="#achievements" class="nav-link text-[#007EA7] hover:text-[#003459] transition-colors duration-200 px-3 py-1 rounded-md">Achievements</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="summary" class="bg-white rounded-lg shadow-lg p-6 md:p-8 mb-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                    <div class="md:col-span-4">
+                        <h2 class="text-3xl font-bold text-[#003459] mb-4">About Me</h2>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            A passionate and dedicated Computer Science Student with a keen interest in problem-solving and learning
+emerging technologies. Enthusiastic about continuously learning and applying knowledge to build impactful
+real-world solutions. I aspire to be a part of an organization where I can contribute, evolve, and make a
+difference
+                        </p>
+                    </div>
+                    <!-- <div class="text-center">
+                         <div class="bg-[#00A8E8] text-white rounded-lg p-6 shadow-xl">
+                            <p class="text-2xl font-semibold">Current CGPA</p>
+                            <p class="text-7xl font-extrabold">8.9</p>
+                         </div>
+                    </div> -->
+                </div>
+            </section>
+            
+            <section id="education" class="mb-12 bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-[#003459] text-center mb-8">Education</h2>
+                <div class="space-y-4 text-lg">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                        <div>
+                            <p class="font-semibold text-gray-800">B.TECH IN COMPUTER SCIENCE</p>
+                            <p class="text-gray-600">Poornima Institute of Engineering and Technology, Jaipur</p>
+                        </div>
+                        <p class="text-gray-700 mt-2 md:mt-0">2022-2026 | CGPA: 8.9</p>
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                        <div>
+                            <p class="font-semibold text-gray-800">Class 12th</p>
+                            <p class="text-gray-600">Sanskar Public School, Thandla (M.P)</p>
+                        </div>
+                        <p class="text-gray-700 mt-2 md:mt-0">2022 | Score: 90%</p>
+                    </div>
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                        <div>
+                            <p class="font-semibold text-gray-800">Class 10th</p>
+                            <p class="text-gray-600">Sanskar Public School, Thandla (M.P)</p>
+                        </div>
+                        <p class="text-gray-700 mt-2 md:mt-0">2020 | Score: 97%</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills" class="mb-12">
+                <h2 class="text-3xl font-bold text-[#003459] text-center mb-8">Technical Proficiency</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                        <h3 class="text-2xl font-bold text-[#003459] text-center mb-4">Core Computer Science Fundamentals</h3>
+                        <div class="space-y-2 text-lg text-gray-700">
+                            <p><span class="font-semibold">Data Structures & Algorithms (DSA)</span></p>
+                            <p><span class="font-semibold">Object-Oriented Programming (OOPs)</span></p>
+                            <p><span class="font-semibold">Database Management Systems (DBMS)</span></p>
+                            <p><span class="font-semibold">Operating Systems (OS)</span></p>
+                        </div>
+                        <p class="text-center text-sm text-gray-500 mt-4">Strong foundational knowledge in core computer science principles crucial for robust software development.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                         <h3 class="text-2xl font-bold text-[#003459] text-center mb-4">Languages & Platforms</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <p class="font-semibold text-gray-700">Languages</p>
+                                <div class="flex flex-wrap gap-2 mt-1">
+                                    <span class="bg-[#003459] text-white px-3 py-1 rounded-full text-sm">Python</span>
+                                    <span class="bg-[#003459] text-white px-3 py-1 rounded-full text-sm">Java</span>
+                                    <span class="bg-[#003459] text-white px-3 py-1 rounded-full text-sm">C++</span>
+                                    <span class="bg-[#003459] text-white px-3 py-1 rounded-full text-sm">SQL</span>
+                                    <span class="bg-[#003459] text-white px-3 py-1 rounded-full text-sm">JavaScript</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-700">Cloud Platform</p>
+                                <div class="flex flex-wrap gap-2 mt-1">
+                                    <span class="bg-[#007EA7] text-white px-3 py-1 rounded-full text-sm">Salesforce</span>
+                                    <span class="bg-[#007EA7] text-white px-3 py-1 rounded-full text-sm">LWC</span>
+                                    <span class="bg-[#007EA7] text-white px-3 py-1 rounded-full text-sm">Flows</span>
+                                    <span class="bg-[#007EA7] text-white px-3 py-1 rounded-full text-sm">Automation</span>
+                                    <span class="bg-[#007EA7] text-white px-3 py-1 rounded-full text-sm">Permissions</span>
+                                </div>
+                            </div>
+                             <div>
+                                <p class="font-semibold text-gray-700">Web Development</p>
+                                <div class="flex flex-wrap gap-2 mt-1">
+                                    <span class="bg-[#00A8E8] text-white px-3 py-1 rounded-full text-sm">HTML5</span>
+                                    <span class="bg-[#00A8E8] text-white px-3 py-1 rounded-full text-sm">CSS3</span>
+                                    <span class="bg-[#00A8E8] text-white px-3 py-1 rounded-full text-sm">JavaScript</span>
+                                    <span class="bg-[#00A8E8] text-white px-3 py-1 rounded-full text-sm">Bootstrap</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-700">Tools & Databases</p>
+                                <div class="flex flex-wrap gap-2 mt-1">
+                                    <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">Git & GitHub</span>
+                                    <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">MySQL</span>
+                                    <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">Power BI</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-center text-sm text-gray-500 mt-8">This section details the specific programming languages, frameworks, and tools I use to build robust applications.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="mb-12">
+                <h2 class="text-3xl font-bold text-[#003459] text-center mb-8">Project Showcase</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col">
+                        <h3 class="text-xl font-bold text-[#003459] mb-2">E-commerce CRM</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">
+                            Developed a Salesforce-based E-commerce CRM platform enabling sellers to showcase products and users to browse and purchase. Implemented core e-commerce functionalities and managed key business processes.
+                        </p>
+                        <ul class="list-disc list-inside text-sm text-gray-600 mb-4">
+                            <li>Object Model: Customer, Products, Cart, Reviews, Orders</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <p class="font-semibold text-sm mb-2">Technology:</p>
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Salesforce</span>
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Custom Objects</span>
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Relationships</span>
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">LWC</span>
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Approval Process</span>
+                            <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Flows</span>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col">
+                        <h3 class="text-xl font-bold text-[#003459] mb-2">TimeTrek - Task Reminder</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">A desktop app to schedule task reminders, featuring a minimal GUI and multithreading for concurrent execution.</p>
+                        <div class="mt-auto">
+                            <p class="font-semibold text-sm mb-2">Technology:</p>
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Python</span>
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Tkinter</span>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col">
+                        <h3 class="text-xl font-bold text-[#003459] mb-2">E-Voting System</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">A secure, GUI-based voting platform ensuring one vote per voter, with robust user authentication and a reliable database backend.</p>
+                         <div class="mt-auto">
+                            <p class="font-semibold text-sm mb-2">Technology:</p>
+                            <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Java (Swing)</span>
+                            <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">JDBC</span>
+                            <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">MySQL</span>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col">
+                        <h3 class="text-xl font-bold text-[#003459] mb-2">Web-Based Music Player</h3>
+                        <p class="text-gray-600 mb-4 flex-grow">A responsive and interactive web music player UI with core playback features, built using dynamic DOM manipulation.</p>
+                         <div class="mt-auto">
+                            <p class="font-semibold text-sm mb-2">Technology:</p>
+                            <span class="inline-block bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">HTML</span>
+                            <span class="inline-block bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">CSS</span>
+                            <span class="inline-block bg-purple-100 text-purple-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience" class="mb-12">
+                <h2 class="text-3xl font-bold text-[#003459] text-center mb-8">Professional Journey</h2>
+                <div class="relative border-l-2 border-[#00A8E8] ml-4 md:ml-0 md:mx-auto md:max-w-2xl">
+                    <div class="mb-8 pl-8 md:pl-10 relative">
+                        <div class="absolute -left-[11px] top-1.5 w-5 h-5 bg-[#00A8E8] rounded-full border-4 border-white"></div>
+                        <p class="text-sm font-medium text-[#007EA7]">May 2025 - Present</p>
+                        <h3 class="text-xl font-bold text-[#003459]">Salesforce Administrator</h3>
+                        <p class="text-gray-600">Smart Bridge</p>
+                        <p class="text-gray-500 mt-2">Actively implementing Salesforce features like LWC and Flows, gaining hands-on experience in platform configuration and customization.</p>
+                    </div>
+                    <div class="pl-8 md:pl-10 relative">
+                        <div class="absolute -left-[11px] top-1.5 w-5 h-5 bg-[#00A8E8] rounded-full border-4 border-white"></div>
+                        <p class="text-sm font-medium text-[#007EA7]">August 2023</p>
+                        <h3 class="text-xl font-bold text-[#003459]">Frontend Web Development Intern</h3>
+                        <p class="text-gray-600">GRRAS Solutions Pvt. Ltd.</p>
+                        <p class="text-gray-500 mt-2">Developed responsive and interactive web interfaces, gaining practical experience in modern front-end best practices.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="achievements" class="mb-12">
+                <h2 class="text-3xl font-bold text-[#003459] text-center mb-8">Achievements & Certifications</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                     <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-2xl font-bold text-[#003459] mb-4">Key Achievements</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start"><span class="text-[#00A8E8] mr-3 text-xl">🏆</span>Qualified GATE CS 2025 with AIR 17,750.</li>
+                            <li class="flex items-start"><span class="text-[#00A8E8] mr-3 text-xl">👥</span>Core team member of "Helping Hands Group," developing teamwork and management skills.</li>
+                            <li class="flex items-start"><span class="text-[#00A8E8] mr-3 text-xl">🚀</span>Co-leader of "Team Titans" in college fest, enhancing leadership abilities.</li>
+                            <li class="flex items-start"><span class="text-[#00A8E8] mr-3 text-xl">🎤</span>Active participant in speech competitions, improving public speaking skills.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-2xl font-bold text-[#003459] mb-4">Certifications</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start"><span class="text-[#00A8E8] mr-3 text-xl">📜</span><a href="https://www.hackerrank.com/certificates/e3bd85148df6">Problem Solving from HackerRank.</a></li>
+                            <li class="flex items-start"><span class="text-[#00A8E8] mr-3 text-xl">📜</span> <a href="https://www.hackerrank.com/certificates/63590ff70e6f"> SQL(Basic) from HackerRank.</a></li>
+                            <li class="flex items-start"><span class="text-[#00A8E8] mr-3 text-xl">📊</span><a href=""> Power BI from Simplilearn.</a></li>
+                            <li class="flex items-start"><span class="text-[#00A8E8] mr-3 text-xl">🤖</span><a href=""> Prompt Engineering & Intro to AI/NLP from Infosys Springboard.</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center py-8 border-t border-gray-200">
+            <h3 class="text-2xl font-bold text-[#003459]">Ready to build the future?</h3>
+            <p class="text-gray-600 mt-2">Let's connect and create something amazing together.</p>
+            <p class="mt-4 font-semibold text-[#007EA7]">rakshitamehta2005@gmail.com</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const FONT_COLOR = '#232323';
+        const GRID_COLOR = '#e5e7eb';
+        const PALETTE = {
+            primary: '#00A8E8',
+            secondary: '#007EA7',
+            tertiary: '#003459'
+        };
+
+        function wrapLabel(label, maxWidth) {
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).trim().length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            });
+            if (currentLine) {
+                lines.push(currentLine.trim());
+            }
+            return lines;
+        }
+        
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+        
+        const commonTooltipOptions = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            }
+        };
+
+        // Removed academics chart data and initialization
+        
+        // Removed skillsRadarData and skillsRadarChart initialization
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Highlight active navigation link on scroll
+        const sections = document.querySelectorAll('main section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 100 && pageYOffset < sectionTop + sectionHeight - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Set initial active link on page load
+        window.dispatchEvent(new Event('scroll'));
+
+    </script>
+</body>
+</html>
